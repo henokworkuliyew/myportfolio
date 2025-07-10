@@ -1,7 +1,8 @@
-import { type NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+import { Project } from '@/types/portfolio' // Import Project type
 
 // Mock database - replace with actual database in production
-const projects = [
+const projects: Project[] = [
   {
     id: 1,
     title: 'E-Commerce Platform',
@@ -16,7 +17,7 @@ const projects = [
       '/placeholder.svg?height=400&width=600',
     ],
     tech: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL', 'Tailwind'],
-    github: 'https://github.com/username/ecommerce-platform',
+    github: 'https://github.com/henokworkuliyew/ecommerce-platform',
     live: 'https://ecommerce-demo.vercel.app',
     featured: true,
     category: 'Full Stack',
@@ -41,7 +42,7 @@ const projects = [
       '/placeholder.svg?height=400&width=600',
     ],
     tech: ['React', 'Socket.io', 'OpenAI', 'Node.js', 'MongoDB'],
-    github: 'https://github.com/username/ai-chat-app',
+    github: 'https://github.com/henokworkuliyew/ai-chat-app',
     live: 'https://ai-chat-demo.vercel.app',
     featured: true,
     category: 'Frontend',
@@ -55,10 +56,11 @@ const projects = [
   },
 ]
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+interface Params {
+  params: { id: string }
+}
+
+export async function GET(_request: NextRequest, { params }: Params) {
   try {
     const id = parseInt(params.id, 10)
     const project = projects.find((p) => p.id === id)
