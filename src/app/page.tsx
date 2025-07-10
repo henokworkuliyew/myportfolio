@@ -12,7 +12,6 @@ import AnimatedBackground from '@/components/animated-background'
 import { useApi } from '@/hooks/use-api'
 import { Project } from '@/types/portfolio'
 import { skills } from '@/data/skills'
-import { experience } from '@/data/experience'
 
 
 export default function Portfolio() {
@@ -26,7 +25,7 @@ export default function Portfolio() {
       <AboutSection />
       <SkillsSection skills={skills} />
       <ProjectsSection projects={projects} />
-      <ExperienceSection experience={experience} />
+      <ExperienceSection  />
       <ContactSection />
       <Footer />
     </div>
