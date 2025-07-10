@@ -15,7 +15,7 @@ export default function Footer() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            © {new Date().getFullYear()} Developer Portfolio. All rights
+            © {new Date().getFullYear()} Henok&apos;s Portfolio. All rights
             reserved.
           </motion.p>
           <motion.div
