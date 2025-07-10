@@ -28,7 +28,7 @@ export default function HeroSection() {
           >
             <div className="w-full h-full rounded-full bg-slate-900 dark:bg-slate-950 flex items-center justify-center">
               <Image
-                src="/placeholder.svg?height=120&width=120"
+                src="/photo/profile.jpg"
                 alt="Profile"
                 width={120}
                 height={120}
