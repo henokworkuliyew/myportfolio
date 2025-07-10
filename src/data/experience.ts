@@ -3,37 +3,32 @@ import type { Experience } from '@/types/portfolio'
 export const experience: Experience[] = [
   {
     company: 'TechCorp Solutions',
-    position: 'Senior Full Stack Developer',
-    duration: '2022 - Present',
+    position: 'Junior Full Stack Developer',
+    duration: '2025 - Present',
     description:
       'Led development of microservices architecture, mentored junior developers, and improved system performance by 40%.',
-    achievements: [
-      'Reduced load times by 60%',
-      'Led team of 5 developers',
-      'Implemented CI/CD pipeline',
-    ],
+    achievements: ['Reduced load times by 60%'],
   },
   {
-    company: 'StartupXYZ',
+    company: 'Alyah Software PLC',
     position: 'Frontend Developer',
-    duration: '2020 - 2022',
+    duration: '2024 - 2025',
     description:
       'Built responsive web applications, collaborated with design team, and implemented modern UI/UX practices.',
     achievements: [
       'Increased user engagement by 35%',
-      'Built 15+ responsive websites',
+      'Built 2+ responsive websites',
       'Optimized SEO performance',
     ],
   },
   {
     company: 'Digital Agency',
     position: 'Junior Developer',
-    duration: '2019 - 2020',
+    duration: '2023 - 2024',
     description:
       'Developed client websites, learned modern frameworks, and contributed to open-source projects.',
     achievements: [
-      'Completed 25+ client projects',
-      'Contributed to 10+ open source projects',
+      'Contributed to 5+ open source projects',
       'Learned 5+ new technologies',
     ],
   },

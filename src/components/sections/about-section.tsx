@@ -19,7 +19,7 @@ export default function AboutSection() {
             About Me
           </h2>
           <p className="text-xl text-white/70 dark:text-white/60 max-w-3xl mx-auto">
-            Passionate developer with 5+ years of experience creating innovative
+            Passionate developer with 3+ years of experience creating innovative
             web solutions
           </p>
         </motion.div>

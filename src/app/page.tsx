@@ -11,58 +11,9 @@ import Footer from '@/components/footer'
 import AnimatedBackground from '@/components/animated-background'
 import { useApi } from '@/hooks/use-api'
 import { Project } from '@/types/portfolio'
+import { skills } from '@/data/skills'
+import { experience } from '@/data/experience'
 
-
-const skills = [
-  { name: 'React', level: 95, color: 'from-blue-400 to-blue-600' },
-  { name: 'Next.js', level: 90, color: 'from-gray-700 to-black' },
-  { name: 'TypeScript', level: 88, color: 'from-blue-500 to-blue-700' },
-  { name: 'Node.js', level: 85, color: 'from-green-400 to-green-600' },
-  { name: 'Python', level: 80, color: 'from-yellow-400 to-yellow-600' },
-  { name: 'PostgreSQL', level: 82, color: 'from-blue-600 to-blue-800' },
-  { name: 'AWS', level: 75, color: 'from-orange-400 to-orange-600' },
-  { name: 'Docker', level: 78, color: 'from-blue-400 to-blue-500' },
-]
-
-
-const experience = [
-  {
-    company: 'TechCorp Solutions',
-    position: 'Senior Full Stack Developer',
-    duration: '2022 - Present',
-    description:
-      'Led development of microservices architecture, mentored junior developers, and improved system performance by 40%.',
-    achievements: [
-      'Reduced load times by 60%',
-      'Led team of 5 developers',
-      'Implemented CI/CD pipeline',
-    ],
-  },
-  {
-    company: 'StartupXYZ',
-    position: 'Frontend Developer',
-    duration: '2020 - 2022',
-    description:
-      'Built responsive web applications, collaborated with design team, and implemented modern UI/UX practices.',
-    achievements: [
-      'Increased user engagement by 35%',
-      'Built 15+ responsive websites',
-      'Optimized SEO performance',
-    ],
-  },
-  {
-    company: 'Digital Agency',
-    position: 'Junior Developer',
-    duration: '2019 - 2020',
-    description:
-      'Developed client websites, learned modern frameworks, and contributed to open-source projects.',
-    achievements: [
-      'Completed 25+ client projects',
-      'Contributed to 10+ open source projects',
-      'Learned 5+ new technologies',
-    ],
-  },
-]
 
 export default function Portfolio() {
     const {  data: projects } = useApi<Project[]>('/api/projects')
