@@ -6,6 +6,7 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useTheme } from '@/components/theme-provider'
 import { useActiveSection } from '@/hooks/use-active-section'
 import { navItems } from '@/data/navigation'
+import Image from 'next/image'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -24,7 +25,15 @@ export default function Navigation() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              DevPortfolio
+              <div className="w-full h-full rounded-full bg-slate-900 dark:bg-slate-950 flex items-center justify-center">
+                              <Image
+                              src="/placeholder.svg?height=120&width=120"
+                              alt="Profile"
+                              width={30}
+                              height={30}
+                              className="rounded-full"
+                            />
+                          </div>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
@@ -64,7 +73,15 @@ export default function Navigation() {
             className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
-            DevPortfolio
+            <div className="w-full h-full rounded-full bg-slate-900 dark:bg-slate-950 flex items-center justify-center">
+              <Image
+                src="/photo/_DSC0319.JPG"
+                alt="Profile"
+                width={50}
+                height={50}
+                className="rounded-full"
+              />
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}
