@@ -4,7 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
-  title: 'Developer Portfolio | Full Stack Developer',
+  title: 'Henok Worku ',
   description:
     'Professional portfolio showcasing modern web development skills and projects',
 }
