@@ -16,10 +16,10 @@ export default function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Let us Work Together
+            Let&apos;s Work Together
           </h2>
           <p className="text-xl text-white/70 dark:text-white/60 max-w-3xl mx-auto">
-            Ready to bring your ideas to life? Let us discuss your next project
+            Ready to bring your ideas to life? Let&apos;s discuss your next project
           </p>
         </motion.div>
 
@@ -34,6 +34,9 @@ export default function ContactSection() {
             <div className="space-y-6">
               {contactInfo.map((contact, index) => {
                 const Icon = contact.icon
+                const isPhone = contact.label === 'Phone'
+                const isEmail = contact.label === 'Email'
+
                 return (
                   <motion.div
                     key={index}
@@ -51,7 +54,25 @@ export default function ContactSection() {
                       <p className="text-white/60 dark:text-white/50 text-sm">
                         {contact.label}
                       </p>
-                      <p className="text-white font-medium">{contact.value}</p>
+                      {isPhone ? (
+                        <a
+                          href={`tel:${contact.value.replace(/\s/g, '')}`}
+                          className="text-white font-medium hover:text-purple-400 transition-colors"
+                        >
+                          {contact.value}
+                        </a>
+                      ) : isEmail ? (
+                        <a
+                          href={`mailto:${contact.value}`}
+                          className="text-white font-medium hover:text-purple-400 transition-colors"
+                        >
+                          {contact.value}
+                        </a>
+                      ) : (
+                        <p className="text-white font-medium">
+                          {contact.value}
+                        </p>
+                      )}
                     </div>
                   </motion.div>
                 )
