@@ -1,9 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
 import { contactInfo, socialLinks } from '@/data/contact'
-import { Card, CardContent } from '../ui/card'
+import ContactForm from '../ui/contact-form'
 
 export default function ContactSection() {
   return (
@@ -87,50 +86,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-white/5 dark:bg-white/[0.02] backdrop-blur-sm border-white/10 dark:border-white/5">
-              <CardContent className="p-8">
-                <form className="space-y-6">
-                  <div>
-                    <label className="block text-white/70 dark:text-white/60 text-sm font-medium mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full bg-white/5 dark:bg-white/[0.02] border border-white/20 dark:border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 dark:placeholder-white/40 focus:outline-none focus:border-purple-400 transition-colors"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-white/70 dark:text-white/60 text-sm font-medium mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full bg-white/5 dark:bg-white/[0.02] border border-white/20 dark:border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 dark:placeholder-white/40 focus:outline-none focus:border-purple-400 transition-colors"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-white/70 dark:text-white/60 text-sm font-medium mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      rows={4}
-                      className="w-full bg-white/5 dark:bg-white/[0.02] border border-white/20 dark:border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 dark:placeholder-white/40 focus:outline-none focus:border-purple-400 transition-colors resize-none"
-                      placeholder="Tell me about your project..."
-                    />
-                  </div>
-                  <motion.button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Send Message
-                  </motion.button>
-                </form>
-              </CardContent>
-            </Card>
+            <ContactForm />
           </motion.div>
         </div>
       </div>
