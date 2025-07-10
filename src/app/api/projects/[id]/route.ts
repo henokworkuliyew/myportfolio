@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server'
 
-// Mock database - in a real app, this would be from a database
+// Mock database - replace with actual database in production
 const projects = [
   {
     id: 1,
@@ -28,7 +28,31 @@ const projects = [
       uptime: 99.9,
     },
   },
-  // ... other projects
+  {
+    id: 2,
+    title: 'AI Chat Application',
+    description:
+      'Real-time chat application with AI integration, voice messages, and file sharing capabilities.',
+    longDescription:
+      'A modern chat app with real-time messaging, AI-powered responses, and multimedia support. Built with React and Socket.io for seamless communication.',
+    image: '/placeholder.svg?height=300&width=500',
+    images: [
+      '/placeholder.svg?height=400&width=600',
+      '/placeholder.svg?height=400&width=600',
+    ],
+    tech: ['React', 'Socket.io', 'OpenAI', 'Node.js', 'MongoDB'],
+    github: 'https://github.com/username/ai-chat-app',
+    live: 'https://ai-chat-demo.vercel.app',
+    featured: true,
+    category: 'Frontend',
+    status: 'In Progress',
+    createdAt: '2024-03-10',
+    metrics: {
+      users: 500,
+      performance: 90,
+      uptime: 99.8,
+    },
+  },
 ]
 
 export async function GET(
@@ -36,7 +60,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const id = Number.parseInt(params.id)
+    const id = parseInt(params.id, 10)
     const project = projects.find((p) => p.id === id)
 
     if (!project) {
@@ -51,9 +75,7 @@ export async function GET(
       data: project,
     })
   } catch (error) {
-    if (error instanceof Error) {
-      console.error('Error fetching project:', error.message)
-    }
+    console.error('Error fetching project:', error)
     return NextResponse.json(
       { success: false, message: 'Failed to fetch project' },
       { status: 500 }
