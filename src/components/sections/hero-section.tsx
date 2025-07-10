@@ -22,21 +22,92 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 p-1"
-            whileHover={{ scale: 1.1, rotate: 360 }}
-            transition={{ duration: 0.5 }}
+            className="relative w-40 h-40 mx-auto mb-8"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
-            <div className="w-full h-full rounded-full bg-slate-900 dark:bg-slate-950 flex items-center justify-center">
-              <Image
-                src="/photo/profile.jpg"
-                alt="Profile"
-                width={120}
-                height={120}
-                className="rounded-full"
-              />
-            </div>
+            {/* LinkedIn-style Open to Work Ring */}
+            <motion.div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: `conic-gradient(from 0deg, #00a0dc 0deg, #00a0dc 60deg, #16a34a 60deg, #16a34a 180deg, #00a0dc 180deg, #00a0dc 240deg, #16a34a 240deg, #16a34a 360deg)`,
+                padding: '4px',
+              }}
+              initial={{ rotate: 0 }}
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 20,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: 'linear',
+              }}
+            >
+              <div className="w-full h-full rounded-full bg-slate-900 dark:bg-slate-950 flex items-center justify-center p-1">
+                <Image
+                  src="/photo/profile.jpg"
+                  alt="Henok Worku - Profile"
+                  width={140}
+                  height={140}
+                  className="rounded-full object-cover w-full h-full"
+                />
+              </div>
+            </motion.div>
+
+            {/* Open to Work Text on Ring */}
+            <motion.div
+              className="absolute inset-0 rounded-full flex items-center justify-center pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+            >
+              <svg className="w-full h-full" viewBox="0 0 160 160">
+                <defs>
+                  <path
+                    id="circle-path"
+                    d="M 80, 80 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"
+                  />
+                </defs>
+                <text
+                  className="text-xs font-bold fill-white"
+                  letterSpacing="2"
+                >
+                  <textPath href="#circle-path" startOffset="0%">
+                    #OPENTOWORK • #OPENTOWORK •
+                  </textPath>
+                </text>
+              </svg>
+            </motion.div>
+
+            {/* Availability Indicator */}
+            <motion.div
+              className="absolute bottom-2 right-2 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded-full border-2 border-white dark:border-slate-900 shadow-lg"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{
+                delay: 0.8,
+                duration: 0.5,
+                type: 'spring',
+                stiffness: 200,
+              }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <div className="flex items-center space-x-1">
+                <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
+                <span>Available</span>
+              </div>
+            </motion.div>
           </motion.div>
 
+          {/* Name */}
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-white mb-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.8 }}
+          >
+            Henok Worku
+          </motion.h2>
+
+          {/* Title */}
           <motion.h1
             className="text-5xl md:text-7xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -50,14 +121,25 @@ export default function HeroSection() {
             Developer
           </motion.h1>
 
+          {/* Subtitle */}
           <motion.p
-            className="text-xl md:text-2xl text-white/70 dark:text-white/60 mb-8 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-purple-300 font-medium mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            Computer Science Graduate • Management Student • Tech Enthusiast
+          </motion.p>
+
+          <motion.p
+            className="text-xl md:text-2xl text-white/70 dark:text-white/60 mb-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Crafting digital experiences with modern technologies and creative
-            solutions
+            Transforming complex problems into scalable, user-friendly solutions
+            with modern technologies and strategic thinking. Ready to make an
+            impact!
           </motion.p>
 
           <motion.div
@@ -68,7 +150,7 @@ export default function HeroSection() {
           >
             <Button
               size="lg"
-              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-0"
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-0 shadow-lg hover:shadow-xl"
               onClick={() => scrollToSection('projects')}
             >
               View My Work
@@ -76,11 +158,10 @@ export default function HeroSection() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10 dark:hover:bg-white/5 bg-transparent"
+              className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white border-0 shadow-lg hover:shadow-xl"
               onClick={() => scrollToSection('contact')}
             >
-              Get In Touch
+              Hire Me Now
             </Button>
           </motion.div>
 
