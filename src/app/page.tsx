@@ -9,6 +9,9 @@ import ExperienceSection from '@/components/sections/experience-section'
 import ContactSection from '@/components/sections/contact-section'
 import Footer from '@/components/footer'
 import AnimatedBackground from '@/components/animated-background'
+import { useApi } from '@/hooks/use-api'
+import { Project } from '@/types/portfolio'
+
 
 const skills = [
   { name: 'React', level: 95, color: 'from-blue-400 to-blue-600' },
@@ -21,52 +24,6 @@ const skills = [
   { name: 'Docker', level: 78, color: 'from-blue-400 to-blue-500' },
 ]
 
-const projects = [
-  {
-    id: 1,
-    title: 'E-Commerce Platform',
-    description:
-      'Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.',
-    image: '/placeholder.svg?height=300&width=500',
-    tech: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL', 'Tailwind'],
-    github: '#',
-    live: '#',
-    featured: true,
-  },
-  {
-    id: 2,
-    title: 'AI Chat Application',
-    description:
-      'Real-time chat application with AI integration, voice messages, and file sharing capabilities.',
-    image: '/placeholder.svg?height=300&width=500',
-    tech: ['React', 'Socket.io', 'OpenAI', 'Node.js', 'MongoDB'],
-    github: '#',
-    live: '#',
-    featured: true,
-  },
-  {
-    id: 3,
-    title: 'Task Management System',
-    description:
-      'Collaborative project management tool with real-time updates, team collaboration, and analytics.',
-    image: '/placeholder.svg?height=300&width=500',
-    tech: ['Vue.js', 'Express', 'Redis', 'PostgreSQL', 'Docker'],
-    github: '#',
-    live: '#',
-    featured: false,
-  },
-  {
-    id: 4,
-    title: 'Weather Analytics Dashboard',
-    description:
-      'Interactive dashboard displaying weather data with charts, maps, and predictive analytics.',
-    image: '/placeholder.svg?height=300&width=500',
-    tech: ['React', 'D3.js', 'Python', 'FastAPI', 'Chart.js'],
-    github: '#',
-    live: '#',
-    featured: false,
-  },
-]
 
 const experience = [
   {
@@ -108,6 +65,8 @@ const experience = [
 ]
 
 export default function Portfolio() {
+    const {  data: projects } = useApi<Project[]>('/api/projects')
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-slate-950 dark:via-purple-950 dark:to-slate-950 text-white overflow-x-hidden transition-colors duration-300">
       <AnimatedBackground />
